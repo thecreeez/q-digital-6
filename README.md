@@ -14,7 +14,7 @@
 - HTML XSS инъекции: 
 - - [anti-malware](https://www.anti-malware.ru/what-is-an-xss-vulnerability)
 - - [programulin](https://www.programulin.ru/zashchita-ot-xss-v-php)
-Debug: http://phpfaq.ru/debug
+- [Debug](http://phpfaq.ru/debug)
 # Описание задачи:
 -	Создать "Task list", чтобы он был доступен разным пользователям (Каждый пользователь имеет свой список заданий). 
 -	У пользователя должна быть возможность добавлять, удалять и отмечать, что задание уже выполнено, из своего списка текущих задач.
