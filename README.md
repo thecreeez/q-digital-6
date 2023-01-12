@@ -10,7 +10,7 @@
 - PHP SQL инъекции: 
 - - [html5css](https://html5css.ru/sql/sql_injection.php)
 - - [hackware](https://hackware.ru/?p=3362)
-- - [htmlacademy] (https://htmlacademy.ru/tutorial/php/sql-injections)
+- - [htmlacademy](https://htmlacademy.ru/tutorial/php/sql-injections)
 - HTML XSS инъекции: 
 - - [anti-malware](https://www.anti-malware.ru/what-is-an-xss-vulnerability)
 - - [programulin](https://www.programulin.ru/zashchita-ot-xss-v-php)
