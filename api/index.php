@@ -4,9 +4,10 @@ require('Application.php');
 
 function route($params) {
     Application::init();
-    session_start();
     $args = explode(":", $params['requestType']);
     $type = $args[0];
+
+    session_start();
 
     switch ($type) {
         case "LOGIN": Application::login($params); break;
@@ -20,7 +21,6 @@ function route($params) {
         case "READY_ALL": Application::readyAllTasks(); break;
     }
 
-    Application::close();
     header("Location: /");
     exit();
 }

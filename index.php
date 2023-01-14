@@ -1,19 +1,11 @@
 <?php 
-include("includes/auth.php");
+require_once("api/Application.php");
 
-if ($login) {
-    require_once("api/Application.php");
+Application::init();
+$tasks = Application::getTasks();
 
-    session_start();
-    Application::init();
-    $tasks = Application::getTasks();
-    Application::close();
-}
-
-if (!$tasks) {
-    $tasks = array();
-}
-
+$loginButtonText = "Выйти";
+$login = $_SESSION['s_login'];
 ?>
 
 <!DOCTYPE html>
@@ -44,7 +36,7 @@ if (!$tasks) {
             </div>
         </div>
         <ul class="list-group">
-            <?php foreach($tasks as $task): ?>
+            <?php if (isset($tasks)) foreach($tasks as $task): ?>
 
                 <li class="list-group-item">
                     <div style="display: flex; justify-content: space-between">

@@ -1,8 +1,6 @@
 <?php 
 session_start();
 
-$loginButtonText = "Войти";
-
 // Если попадает авторизованный значт хочет ливнуть хехе
 if (isset($_SESSION['s_login'])) {
     unset($_SESSION['s_login']);

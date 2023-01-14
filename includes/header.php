@@ -7,6 +7,6 @@
         </li>
     </ul>
     <div>
-        <a class="navbar-brand collapse navbar-collapse" href="/login.php"><?php echo $loginButtonText; ?></a>
+        <a class="navbar-brand collapse navbar-collapse" href="/login.php">Выйти</a>
     </div>
 </nav>

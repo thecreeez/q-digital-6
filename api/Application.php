@@ -1,5 +1,6 @@
 <?php
 require('Database.php');
+session_start();
 
 class Application {
     private static $db = null;
@@ -20,33 +21,24 @@ class Application {
         return self::loginUser($userFromDB, $password);
     }
 
-    public static function close() {
-        self::$db->close();
-    }
-
     private static function registerUser($login, $password) {
-        //if (strlen($login) > 16) {
-        //    echo "Имя слишком длинное (Максимум - 16 символом)";
-        //    exit();
-        //}
+        if (strlen($login) > 16) {
+            echo "Имя слишком длинное (Максимум - 16 символом)";
+            exit();
+        }
 
-        echo "Авторизация: Регистрация успешна";
         self::$db->insertUser($login, $password);
-
-        session_start();
         $_SESSION['s_login']=$login;
+        return true;
     }
 
     private static function loginUser($userFromDB, $password) {
         if (!password_verify($password, $userFromDB['password'])) {
-            echo "Авторизация: Неверный логин или пароль.";
             return false;
         }
 
-        echo "Авторизация: успешно.";
-
-        session_start();
         $_SESSION['s_login']=$userFromDB['login'];
+        return true;
     }
 
     public static function getTasks() {
@@ -82,23 +74,18 @@ class Application {
     public static function readyAllTasks() {
         $userFromDB = self::authUser();
 
-        echo "ready all";
-
         return self::$db->readyAllTasks($userFromDB['id']);
     }
 
     private static function authUser() {
         if (!isset($_SESSION['s_login'])) {
-            Application::close();
             header("Location: /login.php");
             exit();
         }
 
-        $description = $params['taskDescription'];
         $userFromDB = self::$db->getUserByLogin($_SESSION['s_login']);
 
         if (!isset($userFromDB)) {
-            Application::close();
             header("Location: /login.php");
             exit();
         }
