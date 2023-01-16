@@ -1,7 +1,6 @@
 <?php 
 session_start();
 
-// Если попадает авторизованный значт хочет ливнуть хехе
 if (isset($_SESSION['s_login'])) {
     unset($_SESSION['s_login']);
 }
@@ -19,7 +18,6 @@ if (isset($_SESSION['s_login'])) {
 </head>
 <body>
     <?php include("includes/header.php") ?>
-    
     <form method="POST" action="/api/index.php" class="form-signin">
         <h1 class="h3 mb-3 font-weight-normal">Вход</h1>
         <label for="inputLogin" class="sr-only">Логин</label>

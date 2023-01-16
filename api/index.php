@@ -7,8 +7,6 @@ function route($params) {
     $args = explode(":", $params['requestType']);
     $type = $args[0];
 
-    session_start();
-
     switch ($type) {
         case "LOGIN": Application::login($params); break;
         case "LOGOUT": Application::logout($params); break;

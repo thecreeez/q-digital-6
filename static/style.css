@@ -14,3 +14,7 @@ body {
 .container {
     padding: 60px 15px 0;
 }
+
+.card-body {
+    flex: none;
+}

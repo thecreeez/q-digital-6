@@ -3,8 +3,6 @@ require_once("api/Application.php");
 
 Application::init();
 $tasks = Application::getTasks();
-
-$loginButtonText = "Выйти";
 $login = $_SESSION['s_login'];
 ?>
 
@@ -37,7 +35,6 @@ $login = $_SESSION['s_login'];
         </div>
         <ul class="list-group">
             <?php if (isset($tasks)) foreach($tasks as $task): ?>
-
                 <li class="list-group-item">
                     <div style="display: flex; justify-content: space-between">
                         <div><?php echo htmlspecialchars($task['description']); ?></div>
